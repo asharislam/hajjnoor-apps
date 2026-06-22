@@ -1,50 +1,50 @@
-{
-  "name": "hajjnoor-desktop",
-  "version": "1.0.1",
-  "description": "Hajjnoor — Hajj & Umrah management desktop client for Windows.",
-  "main": "main.js",
-  "author": "Hajjnoor",
-  "license": "UNLICENSED",
-  "private": true,
-  "scripts": {
-    "start": "electron .",
-    "build": "electron-builder && npm run postbuild:clean",
-    "build:installer": "electron-builder --win nsis && npm run postbuild:clean",
-    "postbuild:clean": "node -e \"const fs=require('fs'),p=require('path'),d='dist';if(fs.existsSync(d))fs.readdirSync(d).forEach(f=>{if(f==='win-unpacked'||f.endsWith('.blockmap')||f.endsWith('.yml')||f.endsWith('.yaml'))fs.rmSync(p.join(d,f),{recursive:true,force:true})})\""
-  },
-  "devDependencies": {
-    "electron": "^33.0.0",
-    "electron-builder": "^25.0.0"
-  },
-  "build": {
-    "appId": "com.hajjnoor.desktop",
-    "productName": "Hajjnoor",
-    "copyright": "Copyright © 2026 Hajjnoor",
-    "directories": {
-      "output": "dist",
-      "buildResources": "build"
-    },
-    "files": [
-      "main.js",
-      "package.json",
-      "build/icon.ico"
-    ],
-    "win": {
-      "target": [
-        "nsis"
-      ],
-      "icon": "build/icon.ico",
-      "artifactName": "${productName}-${version}-${arch}.${ext}"
-    },
-    "nsis": {
-      "oneClick": false,
-      "perMachine": false,
-      "allowElevation": true,
-      "allowToChangeInstallationDirectory": true,
-      "createDesktopShortcut": true,
-      "createStartMenuShortcut": true,
-      "shortcutName": "Hajjnoor",
-      "artifactName": "HajjnoorSetup-${version}.exe"
-    }
-  }
-}
+{
+  "name": "hajjnoor-desktop",
+  "version": "1.0.1",
+  "description": "Hajjnoor — Hajj & Umrah management desktop client for Windows.",
+  "main": "main.js",
+  "author": "Hajjnoor",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder && npm run postbuild:clean",
+    "build:installer": "electron-builder --win nsis && npm run postbuild:clean",
+    "postbuild:clean": "node -e \"const fs=require('fs'),p=require('path'),d='dist';if(fs.existsSync(d))fs.readdirSync(d).forEach(f=>{if(f==='win-unpacked'||f.endsWith('.blockmap')||f.endsWith('.yml')||f.endsWith('.yaml'))fs.rmSync(p.join(d,f),{recursive:true,force:true})})\""
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.0.0"
+  },
+  "build": {
+    "appId": "com.hajjnoor.desktop",
+    "productName": "Hajjnoor",
+    "copyright": "Copyright © 2026 Hajjnoor",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "main.js",
+      "package.json",
+      "build/icon.ico"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "build/icon.ico",
+      "artifactName": "${productName}-${version}-${arch}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Hajjnoor",
+      "artifactName": "HajjnoorSetup-${version}.exe"
+    }
+  }
+}

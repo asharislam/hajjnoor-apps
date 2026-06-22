@@ -1,20 +1,20 @@
-{
-  "appId": "com.hajjnoor.mobile",
-  "appName": "Hajjnoor",
-  "webDir": "www",
-  "server": {
-    "url": "https://hajjnoor.onrender.com/",
-    "cleartext": false,
-    "androidScheme": "https",
-    "allowNavigation": [
-      "hajjnoor.onrender.com",
-      "*.hajjnoor.onrender.com"
-    ]
-  },
-  "android": {
-    "allowMixedContent": false,
-    "captureInput": true,
-    "webContentsDebuggingEnabled": false,
-    "backgroundColor": "#0f4d3a"
-  }
-}
+{
+  "appId": "com.hajjnoor.mobile",
+  "appName": "Hajjnoor",
+  "webDir": "www",
+  "server": {
+    "url": "https://hajjnoor.onrender.com/",
+    "cleartext": false,
+    "androidScheme": "https",
+    "allowNavigation": [
+      "hajjnoor.onrender.com",
+      "*.hajjnoor.onrender.com"
+    ]
+  },
+  "android": {
+    "allowMixedContent": false,
+    "captureInput": true,
+    "webContentsDebuggingEnabled": false,
+    "backgroundColor": "#0f4d3a"
+  }
+}
