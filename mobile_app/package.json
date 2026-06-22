@@ -1,0 +1,26 @@
+{
+  "name": "hajjnoor-mobile",
+  "version": "1.0.1",
+  "description": "Hajjnoor — Android app wrapping hajjnoor.onrender.com via Capacitor WebView.",
+  "private": true,
+  "author": "Hajjnoor",
+  "license": "UNLICENSED",
+  "scripts": {
+    "init:android": "cap add android",
+    "sync": "cap sync android",
+    "open:android": "cap open android",
+    "assets": "capacitor-assets generate --android",
+    "build:debug": "cap sync android && cd android && gradlew assembleDebug",
+    "build:release": "cap sync android && cd android && gradlew assembleRelease",
+    "build:debug:win": "cap sync android && cd android && gradlew.bat assembleDebug",
+    "build:release:win": "cap sync android && cd android && gradlew.bat assembleRelease"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.2.0",
+    "@capacitor/core": "^6.2.0"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^6.2.0"
+  }
+}

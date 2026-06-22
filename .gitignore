@@ -1,0 +1,26 @@
+# Node
+node_modules/
+*.log
+
+# Electron build output
+desktop_app/dist/
+
+# Capacitor / Android
+mobile_app/android/.gradle/
+mobile_app/android/.idea/
+mobile_app/android/build/
+mobile_app/android/app/build/
+mobile_app/android/app/release/
+mobile_app/android/local.properties
+mobile_app/android/captures/
+mobile_app/android/.cxx/
+*.iml
+
+# Keystore secrets
+*.keystore
+*.jks
+keystore.properties
+
+# OS
+.DS_Store
+Thumbs.db

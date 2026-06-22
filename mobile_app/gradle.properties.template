@@ -1,0 +1,12 @@
+# Copy to mobile_app/android/gradle.properties after `npm run init:android` runs.
+# Tunes Gradle for low-RAM machines (8 GB or less).
+
+org.gradle.jvmargs=-Xmx2048m -XX:MaxMetaspaceSize=512m -Dfile.encoding=UTF-8
+org.gradle.parallel=false
+org.gradle.daemon=true
+org.gradle.caching=true
+org.gradle.configureondemand=true
+
+# AndroidX (required by Capacitor)
+android.useAndroidX=true
+android.enableJetifier=true
