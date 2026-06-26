@@ -1,8 +1,8 @@
 # Hajjnoor Mobile (Android)
 
-Capacitor WebView wrapper around `https://hajjnoor.onrender.com/`. Ships as a signed `.apk` to `../media/download_app/Hajjnoor-1.0.0.apk`.
+Capacitor WebView wrapper around `https://app.hajjnoor.com/`. Ships as a signed `.apk` to `../media/download_app/Hajjnoor-1.0.0.apk`.
 
-The app is a thin native shell — it loads the live Django site in a fullscreen WebView, so feature updates are instant (no Play Store re-release needed).
+The app is a thin native shell — it loads the live Hajjnoor dashboard SPA in a fullscreen WebView, so feature updates ship instantly (deploy the SPA to Cloudflare; no Play Store re-release needed).
 
 ---
 
@@ -172,9 +172,9 @@ npm run apk:release
 
 ## What the app does
 
-- Loads `https://hajjnoor.onrender.com/` in a fullscreen Android WebView.
+- Loads `https://app.hajjnoor.com/` in a fullscreen Android WebView.
 - HTTPS-only (`cleartext: false`).
-- Navigation locked to `hajjnoor.onrender.com` and subdomains; other links open in the user's default browser via Capacitor's intent filter.
+- Navigation locked to `app.hajjnoor.com` and subdomains; other links open in the user's default browser via Capacitor's intent filter.
 - Status bar tinted to Hajjnoor green (`#0f4d3a`).
 - No Play Store dependency — distributed as a side-load APK.
 

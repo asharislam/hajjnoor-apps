@@ -1,6 +1,6 @@
 # Hajjnoor Apps
 
-Desktop (Windows) and Mobile (Android) wrappers around [hajjnoor.onrender.com](https://hajjnoor.onrender.com/).
+Desktop (Windows) and Mobile (Android) wrappers around [app.hajjnoor.com](https://app.hajjnoor.com/).
 
 This repo is intentionally separate from the main Hajjnoor Django repo:
 
@@ -73,20 +73,20 @@ Path filters mean CI only fires for changes inside `desktop_app/`, `mobile_app/`
 ## What the apps do
 
 **Desktop (Electron):**
-- Loads `https://hajjnoor.onrender.com/` in a 1280x800 BrowserWindow.
+- Loads `https://app.hajjnoor.com/` in a 1280x800 BrowserWindow.
 - Native menu: Home / Back / Forward / Refresh / Quit / Zoom / Fullscreen.
 - External links (anything outside the Hajjnoor domain) open in the user's default browser.
 - Sandbox + contextIsolation enabled.
 
 **Mobile (Capacitor):**
-- Loads `https://hajjnoor.onrender.com/` in a fullscreen Android WebView.
+- Loads `https://app.hajjnoor.com/` in a fullscreen Android WebView.
 - HTTPS-only.
 - Status bar tinted Hajjnoor green.
 - External links open in default browser via Android intent.
 
 ## Updating the wrapped URL
 
-Both wrappers hardcode `https://hajjnoor.onrender.com/`. To point at a new domain:
+Both wrappers hardcode `https://app.hajjnoor.com/`. To point at a new domain:
 
 - `desktop_app/main.js` — change `APP_URL`
 - `mobile_app/capacitor.config.json` — change `server.url` + `allowNavigation`

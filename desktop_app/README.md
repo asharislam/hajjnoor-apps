@@ -1,6 +1,6 @@
 # Hajjnoor Desktop (Windows)
 
-Electron wrapper around `https://hajjnoor.onrender.com/`. Ships as an NSIS installer (`HajjnoorSetup-x.y.z.exe`) and a portable `.exe`.
+Electron wrapper around `https://app.hajjnoor.com/`. Ships as an NSIS installer (`HajjnoorSetup-x.y.z.exe`) and a portable `.exe`.
 
 ## Prereqs (one-time)
 
@@ -13,7 +13,7 @@ Electron wrapper around `https://hajjnoor.onrender.com/`. Ships as an NSIS insta
 ```powershell
 cd desktop_app
 npm install
-npm start          # opens app window pointing at hajjnoor.onrender.com
+npm start          # opens app window pointing at app.hajjnoor.com
 ```
 
 ## Build installers
@@ -79,10 +79,10 @@ Until signing is set up, the `/download/` page already warns users about the Sma
 
 ## What the app does
 
-- Loads `https://hajjnoor.onrender.com/` in a single window (1280x800, min 960x600).
+- Loads `https://app.hajjnoor.com/` in a single window (1280x800, min 960x600).
 - Native menu: Home / Back (Alt+Left) / Forward (Alt+Right) / Refresh (F5) / Quit.
 - Zoom controls + fullscreen (F11).
-- External links (anything not on `hajjnoor.onrender.com`) open in the user's default browser via `shell.openExternal`.
+- External links (anything not on `app.hajjnoor.com`) open in the user's default browser via `shell.openExternal`.
 - Sandbox + `contextIsolation` enabled, no Node integration in the renderer.
 - Single-instance lock: launching twice focuses the existing window.
 

@@ -1,7 +1,7 @@
 {
   "name": "hajjnoor-mobile",
   "version": "1.0.1",
-  "description": "Hajjnoor — Android app wrapping hajjnoor.onrender.com via Capacitor WebView.",
+  "description": "Hajjnoor — Android app wrapping the Hajjnoor dashboard SPA (app.hajjnoor.com) via Capacitor WebView.",
   "private": true,
   "author": "Hajjnoor",
   "license": "UNLICENSED",
