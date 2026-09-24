@@ -1,8 +1,8 @@
-# Hajjnoor Mobile (Android)
+# HajjNoor Mobile (Android)
 
-Capacitor WebView wrapper around `https://app.hajjnoor.com/`. Ships as a signed `.apk` to `../media/download_app/Hajjnoor-1.0.0.apk`.
+Capacitor WebView wrapper around `https://www.hajjnoor.com/dashboard/`. Ships as a signed `.apk` to `../media/download_app/HajjNoor-1.0.0.apk`.
 
-The app is a thin native shell — it loads the live Hajjnoor dashboard SPA in a fullscreen WebView, so feature updates ship instantly (deploy the SPA to Cloudflare; no Play Store re-release needed).
+The app is a thin native shell — it loads the live HajjNoor dashboard SPA in a fullscreen WebView, so feature updates ship instantly (deploy the SPA to Cloudflare; no Play Store re-release needed).
 
 ---
 
@@ -62,14 +62,14 @@ Debug APK is signed with Android's auto-generated debug key — installs on any 
 cd C:\Users\aassh\OneDrive\Desktop\hajjnoor_26\hajjnoor\mobile_app
 npm install
 npm run init:android          # one-time — adds android/ folder
-npm run apk:debug             # builds + copies to ../media/download_app/Hajjnoor-1.0.0.apk
+npm run apk:debug             # builds + copies to ../media/download_app/HajjNoor-1.0.0.apk
 ```
 
 First gradle build downloads ~500 MB (Gradle wrapper + Android Gradle Plugin + AndroidX libs). Slow (~5–15 min). Subsequent builds are 30–60 s.
 
 Output:
 ```
-media/download_app/Hajjnoor-1.0.0.apk
+media/download_app/HajjNoor-1.0.0.apk
 ```
 
 Side-load on phone: USB-debug a device + run `adb install`, or just open the `.apk` link from `/download/` page on the phone's browser and tap **Install**.
@@ -130,7 +130,7 @@ npm run apk:release
 
 Output:
 ```
-media/download_app/Hajjnoor-1.0.0.apk
+media/download_app/HajjNoor-1.0.0.apk
 ```
 This is the signed, distributable APK.
 
@@ -138,13 +138,13 @@ This is the signed, distributable APK.
 
 ## Update the Django download link
 
-The Django page at `/download/` already points at `../media/download_app/Hajjnoor-1.0.0.apk` (configured in `core/views/public.py::DownloadAppView.get_context_data`). Bump the version there + in `mobile_app/package.json` + the `copy:apk:*` scripts together when releasing.
+The Django page at `/download/` already points at `../media/download_app/HajjNoor-1.0.0.apk` (configured in `core/views/public.py::DownloadAppView.get_context_data`). Bump the version there + in `mobile_app/package.json` + the `copy:apk:*` scripts together when releasing.
 
 Or refactor to a single source of truth in `hajjnoor/settings.py`:
 ```python
 DESKTOP_APP_VERSION = '1.0.0'
-DESKTOP_APP_INSTALLER = f'HajjnoorSetup-{DESKTOP_APP_VERSION}.exe'
-MOBILE_APP_APK = f'Hajjnoor-{DESKTOP_APP_VERSION}.apk'
+DESKTOP_APP_INSTALLER = f'HajjNoorSetup-{DESKTOP_APP_VERSION}.exe'
+MOBILE_APP_APK = f'HajjNoor-{DESKTOP_APP_VERSION}.apk'
 ```
 Then read these in the view.
 
@@ -172,10 +172,10 @@ npm run apk:release
 
 ## What the app does
 
-- Loads `https://app.hajjnoor.com/` in a fullscreen Android WebView.
+- Loads `https://www.hajjnoor.com/dashboard/` in a fullscreen Android WebView.
 - HTTPS-only (`cleartext: false`).
-- Navigation locked to `app.hajjnoor.com` and subdomains; other links open in the user's default browser via Capacitor's intent filter.
-- Status bar tinted to Hajjnoor green (`#0f4d3a`).
+- Navigation locked to `www.hajjnoor.com` and subdomains; other links open in the user's default browser via Capacitor's intent filter.
+- Status bar tinted to HajjNoor green (`#0f4d3a`).
 - No Play Store dependency — distributed as a side-load APK.
 
 ---

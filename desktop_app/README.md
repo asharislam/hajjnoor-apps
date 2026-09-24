@@ -1,6 +1,6 @@
-# Hajjnoor Desktop (Windows)
+# HajjNoor Desktop (Windows)
 
-Electron wrapper around `https://app.hajjnoor.com/`. Ships as an NSIS installer (`HajjnoorSetup-x.y.z.exe`) and a portable `.exe`.
+Electron wrapper around `https://www.hajjnoor.com/dashboard/`. Ships as an NSIS installer (`HajjNoorSetup-x.y.z.exe`) and a portable `.exe`.
 
 ## Prereqs (one-time)
 
@@ -13,7 +13,7 @@ Electron wrapper around `https://app.hajjnoor.com/`. Ships as an NSIS installer 
 ```powershell
 cd desktop_app
 npm install
-npm start          # opens app window pointing at app.hajjnoor.com
+npm start          # opens app window pointing at www.hajjnoor.com
 ```
 
 ## Build installers
@@ -21,16 +21,16 @@ npm start          # opens app window pointing at app.hajjnoor.com
 ```powershell
 npm run build               # both NSIS + portable
 # or:
-npm run build:installer     # only HajjnoorSetup-x.y.z.exe
-npm run build:portable      # only HajjnoorPortable-x.y.z.exe
+npm run build:installer     # only HajjNoorSetup-x.y.z.exe
+npm run build:portable      # only HajjNoorPortable-x.y.z.exe
 ```
 
 Output is written to `../media/download_app/`:
 
 ```
 media/download_app/
-├── HajjnoorSetup-1.0.0.exe        ← linked from /download/ page
-└── HajjnoorPortable-1.0.0.exe
+├── HajjNoorSetup-1.0.0.exe        ← linked from /download/ page
+└── HajjNoorPortable-1.0.0.exe
 ```
 
 The Django download page at `/download/` references these filenames. If you bump the version in `package.json`, also update `installer_filename` / `portable_filename` in `core/views/public.py::DownloadAppView.get_context_data` and the `app_version` value.
@@ -46,7 +46,7 @@ Render's filesystem is **ephemeral** — anything written to `media/` is lost on
 **Recommended:** host the `.exe` artefacts on **GitHub Releases** (free, versioned, CDN-backed):
 
 1. Push a tag (e.g. `desktop-v1.0.0`) and create a release.
-2. Attach `HajjnoorSetup-1.0.0.exe` + `HajjnoorPortable-1.0.0.exe` as release assets.
+2. Attach `HajjNoorSetup-1.0.0.exe` + `HajjNoorPortable-1.0.0.exe` as release assets.
 3. Replace the `{{ MEDIA_URL }}download_app/...` URLs in `templates/core/public/download.html` with the release asset URLs, or move them to a `DESKTOP_APP_*` setting in `hajjnoor/settings.py` and inject via a context processor.
 
 **Alternative:** upload as Cloudinary `resource_type=raw` and use the returned URL.
@@ -79,10 +79,10 @@ Until signing is set up, the `/download/` page already warns users about the Sma
 
 ## What the app does
 
-- Loads `https://app.hajjnoor.com/` in a single window (1280x800, min 960x600).
+- Loads `https://www.hajjnoor.com/dashboard/` in a single window (1280x800, min 960x600).
 - Native menu: Home / Back (Alt+Left) / Forward (Alt+Right) / Refresh (F5) / Quit.
 - Zoom controls + fullscreen (F11).
-- External links (anything not on `app.hajjnoor.com`) open in the user's default browser via `shell.openExternal`.
+- External links (anything not on `www.hajjnoor.com`) open in the user's default browser via `shell.openExternal`.
 - Sandbox + `contextIsolation` enabled, no Node integration in the renderer.
 - Single-instance lock: launching twice focuses the existing window.
 

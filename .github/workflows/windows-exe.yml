@@ -39,8 +39,8 @@ jobs:
       - name: Upload installer artifact
         uses: actions/upload-artifact@v4
         with:
-          name: HajjnoorSetup-windows
-          path: desktop_app/dist/HajjnoorSetup-*.exe
+          name: HajjNoorSetup-windows
+          path: desktop_app/dist/HajjNoorSetup*.exe
           if-no-files-found: error
           retention-days: 30
 
@@ -48,5 +48,5 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
-          files: desktop_app/dist/HajjnoorSetup-*.exe
+          files: desktop_app/dist/HajjNoorSetup*.exe
           fail_on_unmatched_files: true

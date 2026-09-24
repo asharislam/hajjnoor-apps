@@ -1,9 +1,10 @@
 const { app, BrowserWindow, Menu, shell, dialog } = require('electron');
 const path = require('path');
 
-// Points at the Hajjnoor dashboard SPA (React, hosted on Cloudflare Pages).
+// Points at the HajjNoor dashboard (Django, www.hajjnoor.com). Logged-out
+// users are redirected to /login/ on the same origin.
 // Override at build/run time with HAJJNOOR_APP_URL if your domain differs.
-const APP_URL = process.env.HAJJNOOR_APP_URL || 'https://app.hajjnoor.com/';
+const APP_URL = process.env.HAJJNOOR_APP_URL || 'https://www.hajjnoor.com/dashboard/';
 const APP_ORIGIN = new URL(APP_URL).origin;
 const isDev = !app.isPackaged;
 
@@ -17,7 +18,7 @@ function createWindow() {
     minHeight: 600,
     show: false,
     backgroundColor: '#0f4d3a',
-    title: 'Hajjnoor',
+    title: 'HajjNoor',
     icon: path.join(__dirname, 'build', 'icon.ico'),
     webPreferences: {
       contextIsolation: true,
@@ -31,14 +32,14 @@ function createWindow() {
 
   mainWindow.loadURL(APP_URL).catch((err) => {
     dialog.showErrorBox(
-      'Hajjnoor — Connection Error',
+      'HajjNoor — Connection Error',
       `Could not load ${APP_URL}\n\n${err.message}\n\nCheck your internet connection and try again.`
     );
   });
 
   mainWindow.webContents.on('did-fail-load', (_e, code, desc, url) => {
     if (code === -3) return; // aborted (navigation)
-    dialog.showErrorBox('Hajjnoor — Load Failed', `${desc} (${code})\n${url}`);
+    dialog.showErrorBox('HajjNoor — Load Failed', `${desc} (${code})\n${url}`);
   });
 
   mainWindow.webContents.setWindowOpenHandler(({ url }) => {
@@ -62,7 +63,7 @@ function createWindow() {
 function buildMenu() {
   const template = [
     {
-      label: 'Hajjnoor',
+      label: 'HajjNoor',
       submenu: [
         {
           label: 'Home',
@@ -103,12 +104,12 @@ function buildMenu() {
       label: 'Help',
       submenu: [
         {
-          label: 'About Hajjnoor',
+          label: 'About HajjNoor',
           click: () => {
             dialog.showMessageBox(mainWindow, {
               type: 'info',
-              title: 'About Hajjnoor',
-              message: 'Hajjnoor Desktop',
+              title: 'About HajjNoor',
+              message: 'HajjNoor Desktop',
               detail: `Version ${app.getVersion()}\n${APP_URL}\n\nHajj & Umrah management for travel agencies.`,
               buttons: ['OK'],
             });

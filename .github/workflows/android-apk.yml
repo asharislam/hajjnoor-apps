@@ -52,15 +52,14 @@ jobs:
       - name: Rename APK
         working-directory: mobile_app/android/app/build/outputs/apk/debug
         run: |
-          VERSION=$(node -p "require('../../../../../../package.json').version")
-          mv app-debug.apk Hajjnoor-${VERSION}.apk
+          mv app-debug.apk HajjNoor.apk
           ls -la
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Hajjnoor-android
-          path: mobile_app/android/app/build/outputs/apk/debug/Hajjnoor-*.apk
+          name: HajjNoor-android
+          path: mobile_app/android/app/build/outputs/apk/debug/HajjNoor*.apk
           if-no-files-found: error
           retention-days: 30
 
@@ -68,5 +67,5 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
-          files: mobile_app/android/app/build/outputs/apk/debug/Hajjnoor-*.apk
+          files: mobile_app/android/app/build/outputs/apk/debug/HajjNoor*.apk
           fail_on_unmatched_files: true

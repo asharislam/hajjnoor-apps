@@ -1,9 +1,9 @@
 {
   "name": "hajjnoor-desktop",
-  "version": "1.0.1",
-  "description": "Hajjnoor — Hajj & Umrah management desktop client for Windows.",
+  "version": "1.1.0",
+  "description": "HajjNoor — Hajj & Umrah management desktop client for Windows.",
   "main": "main.js",
-  "author": "Hajjnoor",
+  "author": "HajjNoor",
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
@@ -18,8 +18,8 @@
   },
   "build": {
     "appId": "com.hajjnoor.desktop",
-    "productName": "Hajjnoor",
-    "copyright": "Copyright © 2026 Hajjnoor",
+    "productName": "HajjNoor",
+    "copyright": "Copyright © 2026 HajjNoor",
     "directories": {
       "output": "dist",
       "buildResources": "build"
@@ -43,8 +43,8 @@
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
-      "shortcutName": "Hajjnoor",
-      "artifactName": "HajjnoorSetup-${version}.exe"
+      "shortcutName": "HajjNoor",
+      "artifactName": "HajjNoorSetup.exe"
     }
   }
 }

@@ -1,12 +1,12 @@
-# Hajjnoor Apps
+# HajjNoor Apps
 
-Desktop (Windows) and Mobile (Android) wrappers around [app.hajjnoor.com](https://app.hajjnoor.com/).
+Desktop (Windows) and Mobile (Android) wrappers around [www.hajjnoor.com](https://www.hajjnoor.com/dashboard/).
 
-This repo is intentionally separate from the main Hajjnoor Django repo:
+This repo is intentionally separate from the main HajjNoor Django repo:
 
 - Public + safe to share (no Django code, no secrets, no data).
 - Unlimited free GitHub Actions minutes (public repos).
-- Builds artifacts are attached to GitHub Releases — Hajjnoor's `/download/` page links straight to those URLs.
+- Builds artifacts are attached to GitHub Releases — HajjNoor's `/download/` page links straight to those URLs.
 
 ## Layout
 
@@ -25,17 +25,17 @@ hajjnoor-apps/
 2. Commit + push.
 3. Create + push a tag, e.g.:
    ```bash
-   git tag v1.0.1
-   git push origin v1.0.1
+   git tag v1.1.0
+   git push origin v1.1.0
    ```
 4. Both workflows trigger — Ubuntu runner builds Android APK, Windows runner builds NSIS installer.
 5. Both artifacts auto-uploaded to a new **GitHub Release** named after the tag.
-6. Public download URLs (used by Hajjnoor's `/download/` page):
+6. Public download URLs (used by HajjNoor's `/download/` page):
    ```
-   https://github.com/asharislam/hajjnoor-apps/releases/latest/download/HajjnoorSetup-x.y.z.exe
-   https://github.com/asharislam/hajjnoor-apps/releases/latest/download/Hajjnoor-x.y.z.apk
+   https://github.com/asharislam/hajjnoor-apps/releases/latest/download/HajjNoorSetup.exe
+   https://github.com/asharislam/hajjnoor-apps/releases/latest/download/HajjNoor.apk
    ```
-   The `/latest/download/` redirect resolves to whatever the newest release is — Hajjnoor's HTML never has to bump URLs.
+   File names carry no version, so these `/latest/download/` URLs always point at the newest release — the website never needs updating.
 
 ## Manual build (Windows .exe locally)
 
@@ -47,7 +47,7 @@ npm install
 npm run build:installer
 ```
 
-Output → `desktop_app/dist/HajjnoorSetup-x.y.z.exe`.
+Output → `desktop_app/dist/HajjNoorSetup.exe`.
 
 ## Manual build (Android .apk locally)
 
@@ -73,20 +73,20 @@ Path filters mean CI only fires for changes inside `desktop_app/`, `mobile_app/`
 ## What the apps do
 
 **Desktop (Electron):**
-- Loads `https://app.hajjnoor.com/` in a 1280x800 BrowserWindow.
+- Loads `https://www.hajjnoor.com/dashboard/` in a 1280x800 BrowserWindow.
 - Native menu: Home / Back / Forward / Refresh / Quit / Zoom / Fullscreen.
-- External links (anything outside the Hajjnoor domain) open in the user's default browser.
+- External links (anything outside the HajjNoor domain) open in the user's default browser.
 - Sandbox + contextIsolation enabled.
 
 **Mobile (Capacitor):**
-- Loads `https://app.hajjnoor.com/` in a fullscreen Android WebView.
+- Loads `https://www.hajjnoor.com/dashboard/` in a fullscreen Android WebView.
 - HTTPS-only.
-- Status bar tinted Hajjnoor green.
+- Status bar tinted HajjNoor green.
 - External links open in default browser via Android intent.
 
 ## Updating the wrapped URL
 
-Both wrappers hardcode `https://app.hajjnoor.com/`. To point at a new domain:
+Both wrappers hardcode `https://www.hajjnoor.com/dashboard/`. To point at a new domain:
 
 - `desktop_app/main.js` — change `APP_URL`
 - `mobile_app/capacitor.config.json` — change `server.url` + `allowNavigation`
