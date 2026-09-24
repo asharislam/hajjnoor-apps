@@ -158,10 +158,7 @@ Same caveat as the Windows installer: Render free tier has ephemeral disk, and t
 
 ## Updating the wrapped URL
 
-Edit `mobile_app/capacitor.config.json`:
-```json
-"server": { "url": "https://your-new-domain.com/" }
-```
+Edit the `location.replace()` URL in `mobile_app/www/index.html` and the hosts in `server.allowNavigation` in `mobile_app/capacitor.config.json`. Do not set `server.url` — Capacitor then re-fetches every HTML page through its own Java proxy (slow, no cache).
 Then:
 ```cmd
 npm run sync

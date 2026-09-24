@@ -16,7 +16,10 @@ function createWindow() {
     height: 800,
     minWidth: 960,
     minHeight: 600,
-    show: false,
+    // Show at once (brand-green background) instead of waiting for
+    // ready-to-show: a hidden window until the first remote paint made
+    // launch feel several seconds slower than opening the site in Chrome.
+    show: true,
     backgroundColor: '#0f4d3a',
     title: 'HajjNoor',
     icon: path.join(__dirname, 'build', 'icon.ico'),
@@ -25,10 +28,10 @@ function createWindow() {
       nodeIntegration: false,
       sandbox: true,
       devTools: isDev,
+      // Avoid the hunspell dictionary download on first launch.
+      spellcheck: false,
     },
   });
-
-  mainWindow.once('ready-to-show', () => mainWindow.show());
 
   mainWindow.loadURL(APP_URL).catch((err) => {
     dialog.showErrorBox(

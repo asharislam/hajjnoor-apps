@@ -4,7 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>HajjNoor</title>
-  <meta http-equiv="refresh" content="0; url=https://www.hajjnoor.com/dashboard/">
+  <!--
+    Deliberately NOT capacitor.config server.url: with server.url, Capacitor
+    re-fetches every HTML page through its own Java HttpURLConnection proxy
+    (HTTP/1.1, no WebView cache) to inject its bridge. The app uses no native
+    plugins, so this local page just hands off to the live site and the
+    WebView loads it natively (HTTP/2/3 + disk cache, like Chrome).
+    replace() keeps this page out of history so Back never returns here.
+  -->
   <style>
     html, body { margin: 0; padding: 0; height: 100%; background: #0f4d3a; color: #fff;
       font-family: system-ui, sans-serif; display: grid; place-items: center; text-align: center; }

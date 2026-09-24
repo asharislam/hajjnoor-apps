@@ -3,7 +3,6 @@
   "appName": "HajjNoor",
   "webDir": "www",
   "server": {
-    "url": "https://www.hajjnoor.com/dashboard/",
     "cleartext": false,
     "androidScheme": "https",
     "allowNavigation": [

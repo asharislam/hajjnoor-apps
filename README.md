@@ -89,7 +89,7 @@ Path filters mean CI only fires for changes inside `desktop_app/`, `mobile_app/`
 Both wrappers hardcode `https://www.hajjnoor.com/dashboard/`. To point at a new domain:
 
 - `desktop_app/main.js` — change `APP_URL`
-- `mobile_app/capacitor.config.json` — change `server.url` + `allowNavigation`
+- `mobile_app/www/index.html` — change the `location.replace()` URL; `mobile_app/capacitor.config.json` — change `allowNavigation` (do not use `server.url`: it proxies every page through Capacitor and makes the app slow)
 
 Then bump version + push a new tag.
 
